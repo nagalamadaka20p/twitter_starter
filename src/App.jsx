@@ -4,13 +4,16 @@ import Navbar from "./components/Navbar/Navbar"
 import UserProfile from "./components/UserProfile/UserProfile"
 import Advertisements from "./components/Advertisements/Advertisements"
 import { codepathUserProfile, firstTweet, navLinks } from "./constants"
+import { useState } from "react"
 
 export default function App() {
+  const [userProfile, setUserProfile] = useState(codepathUserProfile)
+
   return (
     <div className="app">
-      <Navbar />
+      <Navbar navLinks={navLinks}/>
       <main>
-        <UserProfile />
+        <UserProfile userProfile = {userProfile} />
         <Feed />
         <Advertisements />
       </main>
